@@ -25,7 +25,7 @@ if ($archive_scroll->taxonomy === 'category') {
 <section id="page-header" class="parallax" data-plx-img="<?php echo get_template_directory_uri() . '/inc/images/our-team-banner.jpg'; ?>">
     <div class="container">
         <div class="header-content">
-            <h1 class="page-title">Our Team of Lawyers</h1>
+            <h1 class="page-title">Our Team</h1>
         </div>
     </div>
 </section>
@@ -46,7 +46,7 @@ if ($archive_scroll->taxonomy === 'category') {
                 <div class="col-xs-6 col-sm-4 col-md-3 team-block-wrap">
                     <div class="team-blank-block v-align">
                         <div class="v-inner">
-                            <h2>Our <br>Lawyers</h2>
+                            <h2>Our <br>Leaders</h2>
                         </div>
                     </div>
                 </div>
@@ -55,7 +55,7 @@ if ($archive_scroll->taxonomy === 'category') {
                 $lawyer_args = array(
                     'post_type'      => 'our_team',
                     'meta_key'		=> 'member_position',
-                    'meta_value'	=> 'lawyer',
+                    'meta_value'	=> 'leader',
                     'order'          => 'ASC'
                 );
                 $lawyer_query = new WP_Query( $lawyer_args );

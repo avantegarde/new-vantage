@@ -37,7 +37,6 @@ function ferus_core_enqueue_custom_scripts() {
     wp_enqueue_script('ferus-core-lightbox', get_template_directory_uri() . '/js/featherlight.min.js', array('jquery'), 1.0, true);
     wp_enqueue_script('ferus-core-lightbox-gallery', get_template_directory_uri() . '/js/featherlight.gallery.min.js', array('jquery'), 1.0, true);
     wp_enqueue_script('ferus-core-eqcss', get_template_directory_uri() . '/js/EQCSS.min.js', array(), 1.0, true);
-    //wp_enqueue_script('ferus-core-ga-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBohpt4_O_uzCiTYWnxxWT-CXJ2-SIsGWY&libraries=places&callback=initMap', array('jquery'), 1.0, true);
     wp_enqueue_script('ferus-core-custom-script', get_template_directory_uri() . '/js/ferus-core.js', array('jquery'), 1.0, true);
 
 }
@@ -745,7 +744,7 @@ function must_reads_shortcode($atts, $content = null) {
                     if ($image) {
                         $image = $image[0];
                     } else {
-                        $image = '/wp-content/themes/ferus_core/inc/images/hero.jpg';
+                        $image = '/wp-content/themes/concore/inc/images/hero.jpg';
                     }
                     // Get Post Format
                     $format = get_post_format() ?: 'standard';
@@ -913,7 +912,7 @@ function hp_must_reads_shortcode($atts, $content = null) {
                     if ($image) {
                         $image = $image[0];
                     } else {
-                        $image = '/wp-content/themes/ferus_core/inc/images/hero.jpg';
+                        $image = '/wp-content/themes/concore/inc/images/hero.jpg';
                     }
                     // Get Post Format
                     //$format = get_post_format() ?: 'standard';
@@ -1085,7 +1084,7 @@ function article_list_shortcode($atts, $content = null) {
                     if ($image) {
                         $image = $image[0];
                     } else {
-                        $image = '/wp-content/themes/ferus_core/inc/images/hero.jpg';
+                        $image = '/wp-content/themes/concore/inc/images/hero.jpg';
                     }
                     ?>
                     <li class="post-item">

@@ -73,7 +73,7 @@ get_header(); ?>
                                     <?php if ($image): ?>
                                         <a class="post-thumb" href="<?php echo get_permalink($post->ID); ?>" data-col="post-inner" style="background-image: url(<?php echo $image[0] ?>);"></a>
                                     <?php else: ?>
-                                        <a class="post-thumb" href="<?php echo get_permalink($post->ID); ?>" data-col="post-inner" style="background-image: url(/wp-content/themes/ferus_core/inc/images/hero.jpg);"></a>
+                                        <a class="post-thumb" href="<?php echo get_permalink($post->ID); ?>" data-col="post-inner" style="background-image: url(/wp-content/themes/concore/inc/images/hero.jpg);"></a>
                                     <?php endif; ?>
 
                                     <div class="post-content" data-col="post-inner">

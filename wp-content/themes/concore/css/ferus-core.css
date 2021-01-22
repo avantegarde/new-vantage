@@ -1528,11 +1528,19 @@ section.lightgrey {
   background-color: #f6f6f6;
 }
 section.green {
-  background-color: #f8b521;
+  background-color: #a8ae37;
   color: #000000 !important;
 }
 section.green a,
 section.green .section-title {
+  color: #000000;
+}
+section.yellow {
+  background-color: #f8b521;
+  color: #000000 !important;
+}
+section.yellow a,
+section.yellow .section-title {
   color: #000000;
 }
 section.black {
@@ -1545,7 +1553,7 @@ section.grey {
   color: #555555;
 }
 section.darkgrey {
-  background-color: #484848;
+  background-color: #5d6567;
   color: #ffffff;
 }
 section.line {
@@ -3804,9 +3812,21 @@ article.single-post .entry-footer .tags > a:hover {
 .accordion [data-accordion=content] p:first-of-type {
   margin-top: 0;
 }
-/*----------------------*
- *--- Vertical Align ---*
- *----------------------*/
+/*------------------------*
+ *------ Flex Grids ------*
+ *------------------------*/
+.flex-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+}
+.flex-align {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
 .v-align {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -4494,6 +4514,7 @@ section.must-reads {
   text-transform: uppercase;
   background: #f8b521;
   color: #ffffff;
+  border-radius: 15px 15px 0 0;
 }
 .must-reads-wrap .post-item .category span {
   vertical-align: middle;
@@ -4510,6 +4531,7 @@ section.must-reads {
   background-size: cover;
   background-position: center;
   background-color: #cccccc;
+  border-radius: 0 0 15px 15px;
 }
 .must-reads-wrap .post-item .post-thumb .content {
   display: block;
@@ -5149,15 +5171,54 @@ form.request-quote label.gfield_label {
     text-align: left;
   }
 }
+/*--------------------------------*
+ *----------- Services -----------*
+ *--------------------------------*/
+section.services .section-title {
+  font-size: 44px;
+  line-height: 48px;
+}
+section.services .service {
+  text-align: center;
+  padding: 15px;
+}
+section.services .service a {
+  display: block;
+  text-decoration: none !important;
+}
+section.services .service img {
+  display: block;
+  width: 225px;
+  height: auto;
+  margin: auto;
+  padding: 0;
+  max-width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+}
+section.services .service .inner:hover img {
+  box-shadow: 0 1px 15px rgba(0,0,0,0.25);
+}
+section.services .service .inner h3 {
+  margin: 15px 0 5px 0;
+  font-size: 28px;
+  line-height: 32px;
+  font-weight: 300;
+}
+section.services .service .inner h4 {
+  display: block;
+  margin: 0;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
 /*------------------------------*
  *----------- People -----------*
  *------------------------------*/
-.flex-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-}
 section.people .section-title {
   font-size: 44px;
   line-height: 48px;
@@ -5190,7 +5251,7 @@ section.people .member .inner h3 {
   margin: 15px 0 5px 0;
   font-size: 28px;
   line-height: 32px;
-  color: #000000;
+  color: #ffffff;
   font-weight: 300;
 }
 section.people .member .inner h4 {
@@ -5198,7 +5259,7 @@ section.people .member .inner h4 {
   margin: 0;
   font-size: 18px;
   line-height: 22px;
-  color: #000000;
+  color: #ffffff;
   font-weight: 300;
   text-transform: uppercase;
 }
