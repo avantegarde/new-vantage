@@ -1481,8 +1481,10 @@ nav.navbar-default .primary li ul li.current-menu-item a {
 #page section {
   display: block;
   width: 100%;
-  padding: 45px 0;
   outline: none !important;
+}
+body:not(.elementor-page) #page section {
+  padding: 45px 0;
 }
 #page section.narrow {
   padding: 30px 0;
@@ -1784,6 +1786,31 @@ section.plx-col .parallax .plx-content p {
   section.plx-col .parallax .plx-content {
     width: 100%;
   }
+}
+/*--------------------------------*
+ *------ Elementor Parallax ------*
+ *--------------------------------*/
+ .el-parallax {
+  position: relative;
+  overflow: hidden;
+}
+.el-parallax .elementor-background-overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 125%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+/* Edit Mode */
+.elementor-element-edit-mode.el-parallax {
+  overflow: hidden !important;
+}
+.elementor-element-edit-mode.el-parallax .elementor-background-overlay {
+  height: 125%;
 }
 /*-----------------------------*
  *------ Slider Defaults ------*

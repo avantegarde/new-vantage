@@ -463,7 +463,40 @@ function plxScroll(){
 window.addEventListener('load', plxScroll);
 window.addEventListener('resize', plxScroll);
 window.addEventListener('scroll', plxScroll);
+/**
+ * Elementor Parallax
+ */
 
+function ElementorParallaxImages() {
+    // Set the scroll for each parallax individually
+    var plx = document.getElementsByClassName('el-parallax');
+    for(i=0;i<plx.length;i++){
+        var height = plx[i].clientHeight;
+        var plxImg = plx[i].getElementsByClassName('elementor-background-overlay')[0];
+        plxImg.style.height = (height+(height/2))+'px';
+    }
+}
+window.addEventListener('load', ElementorParallaxImages);
+function ElementorPlxScroll(){
+    var scrolled = window.scrollY;
+    var win_height_padded = window.innerHeight * 1.25;
+    // Set the scroll for each parallax individually
+    var plx = document.getElementsByClassName('el-parallax');
+    for(i=0;i<plx.length;i++){
+        var offsetTop = getTop(plx[i]);
+        if (scrolled + win_height_padded >= offsetTop) {
+            var plxImg = plx[i].getElementsByClassName('elementor-background-overlay')[0];
+            if(plxImg) {
+                var plxImgHeight = plxImg.clientHeight;
+                var singleScroll = (scrolled - offsetTop) - plxImgHeight/5;
+                plxImg.style.top = (singleScroll / 5) + "px";
+            }
+        }
+    }
+}
+window.addEventListener('load', ElementorPlxScroll);
+window.addEventListener('resize', ElementorPlxScroll);
+window.addEventListener('scroll', ElementorPlxScroll);
 /**
  * Scroll Revealing Items
  */

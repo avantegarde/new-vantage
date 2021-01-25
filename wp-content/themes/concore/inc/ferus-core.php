@@ -712,6 +712,7 @@ function must_reads_shortcode($atts, $content = null) {
             array(
                 'posts' => '4',
                 'category' => '',
+                'container' => '',
             ), $atts)
     );
 
@@ -725,6 +726,7 @@ function must_reads_shortcode($atts, $content = null) {
     $recent_query = new WP_Query($recent_args);
     if ($recent_query->have_posts()) : ?>
         <?php
+        $container_class = $container;
         $postCount = $recent_args['posts_per_page'];
         $columnWidth = 'col-sm-6 col-md-3';
         if ($postCount === '1') {
@@ -735,7 +737,7 @@ function must_reads_shortcode($atts, $content = null) {
             $columnWidth = 'col-sm-12 col-md-4';
         }
         ?>
-        <div class="must-reads-wrap container">
+        <div class="must-reads-wrap <?php echo $container_class; ?>">
             <div class="row">
                 <?php while ( $recent_query->have_posts() ) : $recent_query->the_post(); ?>
                     <?php
@@ -806,6 +808,7 @@ function hp_must_reads_shortcode($atts, $content = null) {
             array(
                 'posts' => '4',
                 'category' => '',
+                'container' => '',
             ), $atts)
     );
 
@@ -893,6 +896,7 @@ function hp_must_reads_shortcode($atts, $content = null) {
 
     if ($recent_query->have_posts()) : ?>
         <?php
+        $container_class = $container;
         $postCount = $recent_args['posts_per_page'];
         $columnWidth = 'col-sm-6 col-md-3';
         if ($postCount === '1') {
@@ -903,7 +907,7 @@ function hp_must_reads_shortcode($atts, $content = null) {
             $columnWidth = 'col-sm-12 col-md-4';
         }
         ?>
-        <div class="must-reads-wrap container">
+        <div class="must-reads-wrap <?php echo $container_class; ?>">
             <div class="row">
                 <?php while ( $recent_query->have_posts() ) : $recent_query->the_post(); ?>
                     <?php
@@ -981,6 +985,7 @@ function related_articles_shortcode($atts, $content = null) {
                 'category' => '',
                 'tag' => '',
                 'author' => '',
+                'container' => '',
             ), $atts)
     );
 
@@ -997,6 +1002,7 @@ function related_articles_shortcode($atts, $content = null) {
     $related_query = new WP_Query($related_args);
     if ($related_query->have_posts()) : ?>
         <?php
+        $container_class = $container;
         $postCount = $related_args['posts_per_page'];
         $columnWidth = 'col-sm-6 col-md-3';
         if ($postCount === '1') {
@@ -1007,7 +1013,7 @@ function related_articles_shortcode($atts, $content = null) {
             $columnWidth = 'col-sm-12 col-md-4';
         }
         ?>
-        <div class="related-articles-wrap container">
+        <div class="related-articles-wrap <?php echo $container_class; ?>">
             <div class="row">
                 <?php while ( $related_query->have_posts() ) : $related_query->the_post(); ?>
                     <?php
