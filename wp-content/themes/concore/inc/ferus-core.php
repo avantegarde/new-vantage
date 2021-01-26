@@ -111,6 +111,7 @@ function patrick_user_can_richedit($c) {
  * Register Custom Image Sizes
  */
 add_image_size('slider-thumb', 200, 100, array('center', 'center')); // Hard crop center
+add_image_size( 'headshot-sq', 800, 800, array( 'center', 'center' ) ); // Hard crop center
 
 // Remove auto p from content (needed for proper html content in pages)
 //remove_filter( 'the_content', 'wpautop' );
@@ -1003,6 +1004,7 @@ function related_articles_shortcode($atts, $content = null) {
     if ($related_query->have_posts()) : ?>
         <?php
         $container_class = $container;
+        var_dump($container_class);
         $postCount = $related_args['posts_per_page'];
         $columnWidth = 'col-sm-6 col-md-3';
         if ($postCount === '1') {
@@ -1310,72 +1312,62 @@ function portfolio_slider_shortcode($atts, $content = null) {
 add_shortcode('portfolio-slider', 'portfolio_slider_shortcode');
 
 /******************************************************************************
- * Consultants Shortcode
+ * Our Team Shortcode
  ******************************************************************************/
-function consultants_shortcode($atts, $content = null) {
+function our_team_shortcode($atts, $content = null) {
     ob_start();
     // Attributes
     extract(shortcode_atts(
             array(
                 'posts' => '4',
                 'people' => '',
+                'bg' => 'light',
             ), $atts)
     );
-
-    $content_pos = $content?$content:'right';
-    $pos_class = 'content-pos-' . $content_pos;
+    $bg_class = $bg;
 
     // Code
     $recent_args = array(
-        'post_type' => 'consultants',
+        'post_type' => 'our_team',
         'tag' => $people,
         'posts_per_page' => $posts,
         'order' => 'ASC'
     );
     $recent_query = new WP_Query($recent_args);
     if ($recent_query->have_posts()) : ?>
-        <div class="consultants">
+        <div class="our-team <?php echo $bg_class; ?>">
             <?php while ( $recent_query->have_posts() ) : $recent_query->the_post(); ?>
                 <?php
-                $feat_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'large' );
-                $image = $feat_image[0] ? $feat_image[0] : get_template_directory_uri() . '/inc/images/hero.jpg';
-                $excerpt_length = 250;
-                $content = apply_filters('the_content', get_the_content());
-                $excerpt = truncate( $content, $excerpt_length, '...', false, true );
+                $feat_image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'headshot-sq' );
+                $image = $feat_image ? $feat_image[0] : get_template_directory_uri() . '/inc/images/hero-sq.jpg';
+                $m_linkedin = get_field('member_linkedin');
+                $m_email = get_field('member_email');
+                $m_phone = get_field('member_phone');
+                $job_title = get_field('member_job_title');
+                $member_position = get_field('member_position');
                 ?>
-                <div class="col-xs-6 col-sm-3 person">
-                    <a href="#consultant-<?php the_ID(); ?>" class="lb-gallery">
+                <div class="member col-sm-6 col-md-3">
+                    <a href="<?php the_permalink(); ?>" class="inner">
                         <img src="<?php echo $image; ?>">
-                        <div style="display:none;">
-                            <div id="consultant-<?php the_ID(); ?>">
-                                <div class="row staff-lb">
-                                    <div class="col-xs-4 img">
-                                        <img src="<?php echo $image; ?>">
-                                    </div>
-                                    <div class="col-xs-8 content">
-                                        <h3 class="name"><?php echo the_title(); ?></h3>
-                                        <?php echo $content; ?>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <h3><?php the_title(); ?></h3>
+                        <h4><?php echo $job_title; ?></h4>
                     </a>
                 </div>
             <?php endwhile; ?>
             <?php wp_reset_postdata(); ?>
         </div><!-- .consultants -->
     <?php else : ?>
-        <p>Sorry! No Consultants found within your criteria.</p>
+        <p>Sorry! No team members found within your criteria.</p>
     <?php endif;
     $output = ob_get_clean();
     return $output;
 }
 
-add_shortcode('consultants', 'consultants_shortcode');
+add_shortcode('our-team', 'our_team_shortcode');
 /******************************************************************************
  * Gallery Shortcode Re-format
  ******************************************************************************/
-add_filter( 'post_gallery', 'my_post_gallery', 10, 2 );
+/*add_filter( 'post_gallery', 'my_post_gallery', 10, 2 );
 function my_post_gallery( $output, $attr) {
     global $post, $wp_locale;
 
@@ -1464,7 +1456,7 @@ function my_post_gallery( $output, $attr) {
     $output .= "</div>\n";
 
     return $output;
-}
+}*/
 /******************************************************************************
  * Custom Author Info Box
  * this adds the author info box at the end of each article

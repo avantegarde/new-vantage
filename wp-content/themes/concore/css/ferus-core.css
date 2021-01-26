@@ -345,6 +345,11 @@ textarea:focus {
   margin-right: -15px !important;
   max-width: calc(100% + 30px) !important;
 }
+.gform_wrapper.bs_wrapper .gform_body {
+  margin-left: -15px !important;
+  margin-right: -15px !important;
+  width: calc(100% + 30px) !important;
+}
 form.bs ul li.gfield {
   clear: none;
   padding: 0 15px !important;
@@ -5161,7 +5166,7 @@ form.request-quote label.gfield_label {
   width: 100%;
   margin: 0;
   padding: 0;
-  padding-bottom: calc(100% / 1.25);
+  padding-bottom: 100%;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;
@@ -5243,22 +5248,24 @@ section.services .service .inner h4 {
   font-weight: 300;
   text-transform: uppercase;
 }
-/*------------------------------*
- *----------- People -----------*
- *------------------------------*/
-section.people .section-title {
-  font-size: 44px;
-  line-height: 48px;
+/*------------------------------------*
+ *-------- Our Team Shortcode --------*
+ *------------------------------------*/
+.our-team {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
 }
-section.people .member {
+.our-team .member {
   text-align: center;
   padding: 15px;
 }
-section.people .member a {
+.our-team .member a {
   display: block;
   text-decoration: none !important;
 }
-section.people .member img {
+.our-team .member img {
   display: block;
   width: 225px;
   height: auto;
@@ -5271,24 +5278,30 @@ section.people .member img {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
 }
-section.people .member .inner:hover img {
+.our-team .member .inner:hover img {
   box-shadow: 0 1px 15px rgba(0,0,0,0.25);
 }
-section.people .member .inner h3 {
+.our-team .member .inner h3 {
   margin: 15px 0 5px 0;
   font-size: 28px;
   line-height: 32px;
-  color: #ffffff;
-  font-weight: 300;
+  color: #333333;
+  font-weight: 400;
 }
-section.people .member .inner h4 {
+.our-team .member .inner h4 {
   display: block;
   margin: 0;
   font-size: 18px;
   line-height: 22px;
-  color: #ffffff;
+  color: #333333;
   font-weight: 300;
   text-transform: uppercase;
+}
+.our-team.dark .member .inner h3 {
+  color: #ffffff;
+}
+.our-team.dark .member .inner h4 {
+  color: #ffffff;
 }
 /*--- Logo Grid ---*/
 .logo-grid img {

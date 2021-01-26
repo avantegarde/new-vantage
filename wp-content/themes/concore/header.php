@@ -38,32 +38,21 @@
     <?php endif; ?>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118996652-1"></script>
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXXXXXX-X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', 'UA-118996652-1');
-        // Google Ads: 735080079
-        gtag('config', 'AW-735080079');
-    </script>
+        gtag('config', 'UA-XXXXXXXXX-X');
+        // Google Ads: XXXXXXXXX
+        gtag('config', 'AW-XXXXXXXXX');
+    </script> -->
 
 
 </head>
 
 <body <?php body_class(); ?>>
-
-<!-- START Facebook Pixel -->
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.11';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-<!-- END Facebook Pixel -->
 
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e('Skip to content', 'bright_light'); ?></a>
