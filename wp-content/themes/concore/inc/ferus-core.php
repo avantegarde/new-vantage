@@ -714,7 +714,7 @@ function must_reads_shortcode($atts, $content = null) {
             array(
                 'posts' => '4',
                 'category' => '',
-                'container' => '',
+                'wrapper' => '',
             ), $atts)
     );
 
@@ -728,7 +728,7 @@ function must_reads_shortcode($atts, $content = null) {
     $recent_query = new WP_Query($recent_args);
     if ($recent_query->have_posts()) : ?>
         <?php
-        $container_class = $container;
+        $container_class = $wrapper;
         $postCount = $recent_args['posts_per_page'];
         $columnWidth = 'col-sm-6 col-md-3';
         if ($postCount === '1') {
@@ -810,7 +810,7 @@ function hp_must_reads_shortcode($atts, $content = null) {
             array(
                 'posts' => '4',
                 'category' => '',
-                'container' => '',
+                'wrapper' => '',
             ), $atts)
     );
 
@@ -898,7 +898,7 @@ function hp_must_reads_shortcode($atts, $content = null) {
 
     if ($recent_query->have_posts()) : ?>
         <?php
-        $container_class = $container;
+        $container_class = $wrapper;
         $postCount = $recent_args['posts_per_page'];
         $columnWidth = 'col-sm-6 col-md-3';
         if ($postCount === '1') {
@@ -987,7 +987,7 @@ function related_articles_shortcode($atts, $content = null) {
                 'category' => '',
                 'tag' => '',
                 'author' => '',
-                'container' => '',
+                'wrapper' => '',
             ), $atts)
     );
 
@@ -1004,8 +1004,7 @@ function related_articles_shortcode($atts, $content = null) {
     $related_query = new WP_Query($related_args);
     if ($related_query->have_posts()) : ?>
         <?php
-        $container_class = $container;
-        var_dump($container_class);
+        $container_class = $wrapper;
         $postCount = $related_args['posts_per_page'];
         $columnWidth = 'col-sm-6 col-md-3';
         if ($postCount === '1') {
